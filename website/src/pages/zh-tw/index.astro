@@ -1,4 +1,5 @@
 ---
-// Redirect zh-tw root to the zh-tw overview page
-return Astro.redirect('/zh-tw/overview', 302);
+import Home from '../index.astro';
 ---
+
+<Home locale="zh-tw" />

@@ -8,9 +8,27 @@ interface Props {
   isZhTw?: boolean;
   /** Slug used to compute the lang-toggle target (docs only, empty for homepage) */
   baseSlug?: string;
+  labels?: {
+    docs?: string;
+    github?: string;
+    discord?: string;
+    getStarted?: string;
+    homeAria?: string;
+  };
 }
 
-const { isDocs = false, isZhTw = false, baseSlug = "" } = Astro.props;
+const { isDocs = false, isZhTw = false, baseSlug = "", labels = {} } = Astro.props;
+const localePrefix = isZhTw ? "/zh-tw" : "";
+const homeHref = isZhTw ? "/zh-tw/" : "/";
+const docsHref = `${localePrefix}/overview`;
+const installHref = `${localePrefix}/getting-started/installation`;
+const navLabels = {
+  docs: labels.docs ?? "Docs",
+  github: labels.github ?? "GitHub",
+  discord: labels.discord ?? "Discord",
+  getStarted: labels.getStarted ?? "get started",
+  homeAria: labels.homeAria ?? "superfile home",
+};
 
 // Landing:  EN  /  → /zh-tw/      ZH /zh-tw/ → /
 // Docs:     EN  /overview → /zh-tw/overview   ZH /zh-tw/overview → /overview
@@ -31,14 +49,14 @@ const langLabel = isZhTw ? "English" : "繁體中文";
       </button>
     )}
 
-    <a href="/" class="site-nav-logo" aria-label="superfile home">
+    <a href={homeHref} class="site-nav-logo" aria-label={navLabels.homeAria}>
       <img src={logoNight.src} alt="superfile" width="120" height="24" />
     </a>
 
     <nav class="site-nav-links" role="navigation" aria-label="Main">
-      <a href="/overview"                              class="site-nav-link">Docs</a>
-      <a href="https://github.com/yorukot/superfile"  class="site-nav-link" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://discord.gg/YYtJ23Du7B"         class="site-nav-link" target="_blank" rel="noopener noreferrer">Discord</a>
+      <a href={docsHref}                              class="site-nav-link">{navLabels.docs}</a>
+      <a href="https://github.com/yorukot/superfile"  class="site-nav-link" target="_blank" rel="noopener noreferrer">{navLabels.github}</a>
+      <a href="https://discord.gg/YYtJ23Du7B"         class="site-nav-link" target="_blank" rel="noopener noreferrer">{navLabels.discord}</a>
     </nav>
 
     <div class="site-nav-right">
@@ -65,7 +83,7 @@ const langLabel = isZhTw ? "English" : "繁體中文";
       </a>
 
       {!isDocs && (
-        <a href="/getting-started/installation" class="site-nav-cta">get started</a>
+        <a href={installHref} class="site-nav-cta">{navLabels.getStarted}</a>
       )}
     </div>
 
@@ -79,10 +97,10 @@ const langLabel = isZhTw ? "English" : "繁體中文";
   top: 0; left: 0; right: 0;
   height: 3.5rem;
   z-index: 100;
-  background: rgba(9, 9, 11, 0.85);
+  background: rgba(30, 30, 46, 0.85);
   backdrop-filter: blur(16px) saturate(150%);
   -webkit-backdrop-filter: blur(16px) saturate(150%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(205, 214, 244, 0.07);
 }
 
 .site-nav-inner {
@@ -104,15 +122,15 @@ const langLabel = isZhTw ? "English" : "繁體中文";
   margin-right: 0.75rem;
   flex-shrink: 0;
   background: none;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--border-1);
   border-radius: 0.3125rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--text-3);
   cursor: pointer;
   transition: color 0.15s, border-color 0.15s;
 }
 .site-nav-menu-btn:hover {
-  color: #4ade80;
-  border-color: rgba(74, 222, 128, 0.35);
+  color: var(--green);
+  border-color: var(--d-green-border, rgba(166, 227, 161, 0.35));
 }
 
 /* ── Logo ─── */
@@ -143,14 +161,14 @@ const langLabel = isZhTw ? "English" : "繁體中文";
 .site-nav-link {
   padding: 0.3125rem 0.625rem;
   font-size: 0.8125rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--text-3);
   border-radius: 0.3125rem;
   text-decoration: none;
   transition: color 0.15s, background 0.15s;
 }
 .site-nav-link:hover {
-  color: #d4d4d4;
-  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  background: rgba(205, 214, 244, 0.05);
 }
 
 /* ── Right cluster ─── */
@@ -168,15 +186,15 @@ const langLabel = isZhTw ? "English" : "繁體中文";
   gap: 0.3125rem;
   padding: 0.25rem 0.625rem;
   font-size: 0.75rem;
-  color: #fbbf24;
-  border: 1px solid rgba(251, 191, 36, 0.2);
+  color: var(--amber);
+  border: 1px solid rgba(249, 226, 175, 0.2);
   border-radius: 999px;
   text-decoration: none;
   transition: border-color 0.15s, background 0.15s;
 }
 .site-nav-stars:hover {
-  border-color: #fbbf24;
-  background: rgba(251, 191, 36, 0.07);
+  border-color: var(--amber);
+  background: var(--amber-dim);
 }
 
 /* Language toggle */
@@ -186,16 +204,16 @@ const langLabel = isZhTw ? "English" : "繁體中文";
   gap: 0.3125rem;
   padding: 0.25rem 0.625rem;
   font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-3);
+  border: 1px solid var(--border-1);
   border-radius: 0.3125rem;
   text-decoration: none;
   transition: color 0.15s, border-color 0.15s, background 0.15s;
 }
 .site-nav-lang:hover {
-  color: #4ade80;
-  border-color: rgba(74, 222, 128, 0.35);
-  background: rgba(74, 222, 128, 0.06);
+  color: var(--green);
+  border-color: rgba(166, 227, 161, 0.35);
+  background: rgba(166, 227, 161, 0.06);
 }
 
 /* Get started CTA */
@@ -203,15 +221,15 @@ const langLabel = isZhTw ? "English" : "繁體中文";
   padding: 0.375rem 0.875rem;
   font-size: 0.8125rem;
   font-weight: 500;
-  color: #09090b;
-  background: #4ade80;
+  color: #11111b;
+  background: var(--green);
   border-radius: 0.3125rem;
   text-decoration: none;
   transition: background 0.15s, box-shadow 0.15s;
 }
 .site-nav-cta:hover {
-  background: #6ee7a0;
-  box-shadow: 0 0 1rem rgba(74, 222, 128, 0.4);
+  background: #b5e8b0;
+  box-shadow: 0 0 1rem rgba(166, 227, 161, 0.4);
 }
 
 /* ── Responsive ─── */
