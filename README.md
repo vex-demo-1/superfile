@@ -9,7 +9,7 @@
    <br>
    <br>
    <a href="https://www.warp.dev/?utm_source=github&utm_medium=referral&utm_campaign=superfile">
-      <img alt="Warp sponsorship" width="300" src="/asset/readme/warp.png">
+      <img alt="Warp sponsorship" width="300" src="asset/readme/warp.png">
    </a>
 
 ### [Warp, the AI terminal for developers](https://www.warp.dev/?utm_source=github&utm_medium=referral&utm_campaign=superfile)
@@ -23,9 +23,9 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="/asset/readme/superfilelogowhite.png" />
-  <source media="(prefers-color-scheme: light)" srcset="/asset/readme/superfilelogoblack.png" />
-  <img alt="superfile LOGO" src="/asset/readme/superfilelogowhite.png" />
+  <source width="300" media="(prefers-color-scheme: dark)" srcset="website/src/assets/superfile-night.svg" />
+  <source width="300" media="(prefers-color-scheme: light)" srcset="website/src/assets/superfile-day.svg" />
+  <img alt="superfile LOGO" src="website/src/assets/superfile-day.svg" />
 </picture>
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/yorukot/superfile)](https://goreportcard.com/report/github.com/yorukot/superfile)
@@ -36,7 +36,7 @@
 ![GitHub downloads](https://img.shields.io/github/downloads/yorukot/superfile/total?label=GitHub%20downloads%20assets%2Freleases)
 [![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/yorukot/superfile?utm_source=oss&utm_medium=github&utm_campaign=yorukot%2Fsuperfile&labelColor=171717&color=FF570A&&label=CodeRabbit+Reviews)](https://www.coderabbit.ai/)
 
-![](/website/src/assets/demo.png)
+![](asset/readme/demo.png)
 
 </div>
 
@@ -44,26 +44,41 @@
 
 | Perform common operations |
 | ------------------------- |
-| ![](/asset/readme/demo.gif)      |
+| ![](asset/readme/demo.gif)      |
 
 ## Content
 
+- [Demo](#demo)
+- [Content](#content)
 - [Installation](#installation)
+  - [macOS and Linux](#macos-and-linux)
+  - [Windows](#windows)
+    - [Powershell](#powershell)
+    - [Winget](#winget)
+    - [Scoop](#scoop)
+  - [More installation methods](#more-installation-methods)
 - [Build](#build)
+  - [For macOS/Linux](#for-macoslinux)
+  - [For Windows](#for-windows)
+- [Start superfile](#start-superfile)
 - [Supported Systems](#supported-systems)
 - [Tutorial](#tutorial)
 - [Plugins](#plugins)
 - [Themes](#themes)
 - [Hotkeys](#hotkeys)
 - [Notes](#notes)
-- [Contributing](#contributing)
 - [Troubleshooting](#troubleshooting)
+- [Uninstalling](#uninstalling)
+  - [macOS and Linux](#macos-and-linux-1)
+  - [Window](#window)
+- [Contributing](#contributing)
 - [Thanks](#thanks)
-  - [Support](#Support)
+  - [Support](#support)
   - [Core maintainer](#core-maintainer)
   - [Contributors](#contributors)
   - [Powered by](#powered-by)
   - [Star History](#star-history)
+- [༼ つ ◕\_◕ ༽つ  Please share.](#-つ-_-つ--please-share)
 
 ## Installation
 
