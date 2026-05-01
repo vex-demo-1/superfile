@@ -62,34 +62,34 @@ Before starting, make sure the theme you want to add doesn’t already exist.
 
   - Make sure that file previewer is non empty, process panel has at least one process, and clipboard has at least one entry
 
-  ![Full view of superfile](https://raw.githubusercontent.com/yorukot/superfile/main/asset/theme-example/1.png)
+  ![Full view of superfile](../../../assets/contributing/theme-example/1.png)
 
 - Add a screenshot of these individual panels being focused (To make sure border focus color is good)
 
   - Sidebar
   - Processbar
 
-  ![Sidebar focused](https://raw.githubusercontent.com/yorukot/superfile/main/asset/theme-example/2.png)
+  ![Sidebar focused](../../../assets/contributing/theme-example/2.png)
 
-  ![Processbar focused](https://raw.githubusercontent.com/yorukot/superfile/main/asset/theme-example/3.png)
+  ![Processbar focused](../../../assets/contributing/theme-example/3.png)
 
 - Add a screenshot of help menu (Press `?`)
 
-  ![Help menu](https://raw.githubusercontent.com/yorukot/superfile/main/asset/theme-example/4.png)
+  ![Help menu](../../../assets/contributing/theme-example/4.png)
 
 - Add a screenshot of popup that opens when you create a new file (Ctrl+n)
 
-  ![New file popup](https://raw.githubusercontent.com/yorukot/superfile/main/asset/theme-example/5.png)
+  ![New file popup](../../../assets/contributing/theme-example/5.png)
 
 - Add a screenshot of image being previewed using your theme
 
-  ![Image preview](https://raw.githubusercontent.com/yorukot/superfile/main/asset/theme-example/6.png)
+  ![Image preview](../../../assets/contributing/theme-example/6.png)
 
 - Add a screenshot of successful and unsuccessful shell command
 
-  ![Successful shell command](https://raw.githubusercontent.com/yorukot/superfile/main/asset/theme-example/7.png)
+  ![Successful shell command](../../../assets/contributing/theme-example/7.png)
 
-  ![Failed shell command](https://raw.githubusercontent.com/yorukot/superfile/main/asset/theme-example/8.png)
+  ![Failed shell command](../../../assets/contributing/theme-example/8.png)
 
 </details>
 

@@ -9,7 +9,7 @@
    <br>
    <br>
    <a href="https://www.warp.dev/?utm_source=github&utm_medium=referral&utm_campaign=superfile">
-      <img alt="Warp sponsorship" width="300" src="/asset/warp.png">
+      <img alt="Warp sponsorship" width="300" src="/asset/readme/warp.png">
    </a>
 
 ### [Warp, the AI terminal for developers](https://www.warp.dev/?utm_source=github&utm_medium=referral&utm_campaign=superfile)
@@ -23,9 +23,9 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="/asset/superfilelogowhite.png" />
-  <source media="(prefers-color-scheme: light)" srcset="/asset/superfilelogoblack.png" />
-  <img alt="superfile LOGO" src="/asset/superfilelogowhite.png" />
+  <source media="(prefers-color-scheme: dark)" srcset="/asset/readme/superfilelogowhite.png" />
+  <source media="(prefers-color-scheme: light)" srcset="/asset/readme/superfilelogoblack.png" />
+  <img alt="superfile LOGO" src="/asset/readme/superfilelogowhite.png" />
 </picture>
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/yorukot/superfile)](https://goreportcard.com/report/github.com/yorukot/superfile)
@@ -36,7 +36,7 @@
 ![GitHub downloads](https://img.shields.io/github/downloads/yorukot/superfile/total?label=GitHub%20downloads%20assets%2Freleases)
 [![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/yorukot/superfile?utm_source=oss&utm_medium=github&utm_campaign=yorukot%2Fsuperfile&labelColor=171717&color=FF570A&&label=CodeRabbit+Reviews)](https://www.coderabbit.ai/)
 
-![](/asset/demo.png)
+![](/website/src/assets/demo.png)
 
 </div>
 
@@ -44,7 +44,7 @@
 
 | Perform common operations |
 | ------------------------- |
-| ![](/asset/demo.gif)      |
+| ![](/asset/readme/demo.gif)      |
 
 ## Content
 
