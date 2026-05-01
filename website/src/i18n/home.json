@@ -118,7 +118,7 @@
 	"zh-tw": {
 		"lang": "zh-TW",
 		"title": "superfile - 終端機檔案管理器",
-		"description": "精緻又現代的終端機檔案管理器。優雅的完成你的檔案操作。",
+		"description": "精緻現代的終端機檔案管理器。優雅的完成你的檔案操作。",
 		"nav": {
 			"docs": "文件",
 			"github": "GitHub",
@@ -127,7 +127,7 @@
 			"homeAria": "superfile 首頁"
 		},
 		"hero": {
-			"tagline": ["精緻又現代的終端機檔案管理器。", "優雅的完成你的檔案操作。"],
+			"tagline": ["精緻現代的終端機檔案管理器。", "優雅的完成你的檔案操作。"],
 			"getStarted": "開始使用",
 			"viewOnGitHub": "在 GitHub 上查看",
 			"terminalTitle": "superfile — ~/Documents",

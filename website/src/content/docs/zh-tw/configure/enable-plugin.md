@@ -54,6 +54,7 @@ $EDITOR CONFIG_PATH
 ## 設定格式
 
 ```toml
+[plugins]
 metadata = false
 zoxide_support = false
 ```
