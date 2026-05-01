@@ -7,7 +7,9 @@ head:
 ---
 
 # Implmentation info
-The purpose of this document is to provide some implementation details to the reader that are not so obvious from the code and not very straightforward to figure out. 
+
+The purpose of this document is to provide some implementation details to the reader that are not so obvious from the code and not very straightforward to figure out.
 
 ## How default configuration files are packaged with app
+
 We use golangs `embed.FS` and embed all files in `src/superfile_config/` into our spf binary. In `src/internal/config_function.go`, the function `LoadAllDefaultConfig()` reads these embedded files, and write them to disk / in memory configuratin variables.

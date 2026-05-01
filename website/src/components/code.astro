@@ -3,9 +3,9 @@ import { Code } from "astro:components";
 import fs from "node:fs/promises";
 
 interface Props {
-  file: string;
-  language?: string;
-  meta?: string;
+	file: string;
+	language?: string;
+	meta?: string;
 }
 
 const { file, language } = Astro.props;
@@ -16,8 +16,8 @@ const lang = language ?? fileExtension;
 ---
 
 <figure class="code-file">
-  <div class="code-file-header">
-    <span class="code-file-name">{file}</span>
-  </div>
-  <Code code={code} lang={lang} theme="dracula" />
+	<div class="code-file-header">
+		<span class="code-file-name">{file}</span>
+	</div>
+	<Code code={code} lang={lang} theme="dracula" />
 </figure>

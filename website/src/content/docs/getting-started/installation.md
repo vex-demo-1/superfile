@@ -29,6 +29,7 @@ bash -c "$(curl -sLo- https://superfile.dev/install.sh)"
 ```
 
 Or with `wget`:
+
 ```bash
 bash -c "$(wget -qO- https://superfile.dev/install.sh)"
 ```
@@ -63,7 +64,7 @@ With [Winget](https://winget.run/):
 
 ```powershell
 winget install --id yorukot.superfile
-``````
+```
 
 With [Scoop](https://scoop.sh/):
 
@@ -143,6 +144,7 @@ pixi global install superfile
 ### X-CMD
 
 [x-cmd](https://www.x-cmd.com/) is a **toolbox for Posix Shell**, offering a lightweight package manager built using shell and awk.
+
 ```sh
 x env use superfile
 ```

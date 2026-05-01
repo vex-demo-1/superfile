@@ -61,17 +61,17 @@ Quit superfile and cd to current folder "cd_quit" require the same scripts as ["
 
 ## File operations
 
-| Function                                             | Key                | Variable name                                                                          |
-| ---------------------------------------------------- | ------------------ | -------------------------------------------------------------------------------------- |
-| Create file or folder(/ ends with creating a folder) | `ctrl+n`           | `file_panel_item_create`                                                               |
-| Rename file or folder                                | `ctrl+r`           | `file_panel_item_rename`                                                               |
-| Copy file or folder (or both)                        | `ctrl+c`           | `copy_single_item` (normal mode) <br> `file_panel_select_mode_item_copy` (select mode) |
-| Cut file or folder (or both)                         | `ctrl+x`           | `file_panel_select_mode_item_cut`                                                      |
-| Paste all items in your clipboard                    | `ctrl+v`, `ctrl+w` | `paste_item`                                                                           |
-| Delete file or folder (or both)                      | `ctrl+d`, `delete` | `delete_item` (normal mode) <br> `file_panel_select_mode_item_delete` (select mode)    |
-| Copy current file or directory path                  | `ctrl+p`           | `copy_path`                                                                            |
-| Extract zip file                                     | `ctrl+e`           | `extract_file` (normal mode)                                                           |
-| Zip file or folder to .zip file                      | `ctrl+a`           | `compress_file` (normal mode)                                                          |
-| Open file with your default editor                   | `e`                | `open_file_with_editor` (normal node)                                                  |
-| Open current directory with default editor           | `E` (shift+e)      | `current_directory_with_editor` (normal node)                                          |
-| Permanently Delete file or folder (or both)          | `D` (shift+d) | `permanently_delete_items` (normal mode) <br> `file_panel_select_mode_item_delete` (select mode)    |
+| Function                                             | Key                | Variable name                                                                                    |
+| ---------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------ |
+| Create file or folder(/ ends with creating a folder) | `ctrl+n`           | `file_panel_item_create`                                                                         |
+| Rename file or folder                                | `ctrl+r`           | `file_panel_item_rename`                                                                         |
+| Copy file or folder (or both)                        | `ctrl+c`           | `copy_single_item` (normal mode) <br> `file_panel_select_mode_item_copy` (select mode)           |
+| Cut file or folder (or both)                         | `ctrl+x`           | `file_panel_select_mode_item_cut`                                                                |
+| Paste all items in your clipboard                    | `ctrl+v`, `ctrl+w` | `paste_item`                                                                                     |
+| Delete file or folder (or both)                      | `ctrl+d`, `delete` | `delete_item` (normal mode) <br> `file_panel_select_mode_item_delete` (select mode)              |
+| Copy current file or directory path                  | `ctrl+p`           | `copy_path`                                                                                      |
+| Extract zip file                                     | `ctrl+e`           | `extract_file` (normal mode)                                                                     |
+| Zip file or folder to .zip file                      | `ctrl+a`           | `compress_file` (normal mode)                                                                    |
+| Open file with your default editor                   | `e`                | `open_file_with_editor` (normal node)                                                            |
+| Open current directory with default editor           | `E` (shift+e)      | `current_directory_with_editor` (normal node)                                                    |
+| Permanently Delete file or folder (or both)          | `D` (shift+d)      | `permanently_delete_items` (normal mode) <br> `file_panel_select_mode_item_delete` (select mode) |

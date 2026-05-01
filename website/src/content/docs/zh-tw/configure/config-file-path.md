@@ -14,8 +14,8 @@ head:
 
 #### 設定目錄
 
-|         Linux         |              macOS              |          Windows           |
-| :-------------------: | :-----------------------------: | :------------------------: |
+|         Linux         |                   macOS                   |          Windows           |
+| :-------------------: | :---------------------------------------: | :------------------------: |
 | `~/.config/superfile` | `~/Library/Application Support/superfile` | `%LOCALAPPDATA%/superfile` |
 
 #### 主題目錄
@@ -56,14 +56,14 @@ spf --hotkey-file /path/to/your/hotkey.toml
 
 #### Config
 
-|               Linux               |                    macOS                    |                Windows                 |
-| :-------------------------------: | :-----------------------------------------: | :------------------------------------: |
+|               Linux               |                         macOS                         |                Windows                 |
+| :-------------------------------: | :---------------------------------------------------: | :------------------------------------: |
 | `~/.config/superfile/config.toml` | `~/Library/Application Support/superfile/config.toml` | `%LOCALAPPDATA%/superfile/config.toml` |
 
 #### Hotkeys
 
-|               Linux                |                    macOS                     |                 Windows                 |
-| :--------------------------------: | :------------------------------------------: | :-------------------------------------: |
+|               Linux                |                         macOS                          |                 Windows                 |
+| :--------------------------------: | :----------------------------------------------------: | :-------------------------------------: |
 | `~/.config/superfile/hotkeys.toml` | `~/Library/Application Support/superfile/hotkeys.toml` | `%LOCALAPPDATA%/superfile/hotkeys.toml` |
 
 #### 日誌檔

@@ -64,7 +64,7 @@ powershell -ExecutionPolicy Bypass -Command "$env:SPF_INSTALL_VERSION=1.2.1; Inv
 
 ```powershell
 winget install --id yorukot.superfile
-``````
+```
 
 使用 [Scoop](https://scoop.sh/)：
 

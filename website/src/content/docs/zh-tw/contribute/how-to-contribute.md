@@ -12,11 +12,11 @@ head:
 
 有許多方式可以貢獻：
 
-* 回報錯誤
-* 修復 issue
-* 新增主題
-* 建議並實作新功能
-* 分享想法或回饋
+- 回報錯誤
+- 修復 issue
+- 新增主題
+- 建議並實作新功能
+- 分享想法或回饋
 
 ---
 
@@ -46,11 +46,12 @@ head:
 3. 透過編輯 `~/.config/superfile/config/config.toml` 來測試
 4. 準備好後送出 pull request
 5. 為了確保主題看起來一致且功能正常，請在 PR 中附上以下截圖：
+
 - superfile 的完整畫面（包含側邊欄、檔案預覽器、process panel、metadata panel 和 clipboard panel）
-    - 請確保檔案預覽器不是空的、process panel 至少有一個 process，且 clipboard 至少有一個項目
+  - 請確保檔案預覽器不是空的、process panel 至少有一個 process，且 clipboard 至少有一個項目
 - 新增這些個別面板聚焦時的截圖（用來確認邊框聚焦顏色正常）
-    - 側邊欄
-    - Processbar
+  - 側邊欄
+  - Processbar
 - 新增說明選單的截圖（按下 ?）
 - 新增建立新檔案時開啟的 popup 截圖（Ctrl+n）
 - 新增使用您的主題預覽圖片時的截圖。
@@ -59,13 +60,11 @@ head:
 <summary>範例：</summary>
 
 - superfile 的完整畫面（包含側邊欄、檔案預覽器、process panel、metadata panel 和 clipboard panel）
-
   - 請確保檔案預覽器不是空的、process panel 至少有一個 process，且 clipboard 至少有一個項目
 
   ![superfile 完整畫面](../../../../assets/contributing/theme-example/1.png)
 
 - 新增這些個別面板聚焦時的截圖（用來確認邊框聚焦顏色正常）
-
   - 側邊欄
   - Processbar
 
@@ -107,8 +106,7 @@ head:
 
 ## 🧩 不知道從哪裡開始？
 
-請參考 GitHub 官方指南：
-[https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project)
+請參考 GitHub 官方指南： [https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project](https://docs.github.com/en/get-started/exploring-projects-on-github/contributing-to-a-project)
 
 仍然不確定嗎？開啟 discussion，我們很樂意協助。
 
@@ -118,12 +116,13 @@ head:
 
 請確認您的 PR 符合以下步驟：
 
-* [ ] 我已執行 `go fmt ./...` 來格式化程式碼
-* [ ] 我已執行 `golangci-lint run` 並修正所有回報的問題
-* [ ] 我已測試變更並確認其如預期運作
-* [ ] 我已檢查 diff，確認沒有提交任何 debug logs 或 TODOs
-* [ ] 我已填寫 PR template，包含描述、背景，以及必要時的截圖
-- [ ] 我已確認 PR title 符合 [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) 格式
+- [ ] 我已執行 `go fmt ./...` 來格式化程式碼
+- [ ] 我已執行 `golangci-lint run` 並修正所有回報的問題
+- [ ] 我已測試變更並確認其如預期運作
+- [ ] 我已檢查 diff，確認沒有提交任何 debug logs 或 TODOs
+- [ ] 我已填寫 PR template，包含描述、背景，以及必要時的截圖
+
+* [ ] 我已確認 PR title 符合 [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) 格式
 
 ---
 

@@ -153,9 +153,7 @@ To open a file with an editor, press `e`.
 
 To open the current directory with an editor, press `E` (shift+e).
 
-To change the default file editor, you can set the `EDITOR` environment variable in your terminal or you can use the `editor` config option (take priority over `EDITOR` environment variable). 
-To change the default directory editor, you can use the `dir_editor` config option.
-For example:
+To change the default file editor, you can set the `EDITOR` environment variable in your terminal or you can use the `editor` config option (take priority over `EDITOR` environment variable). To change the default directory editor, you can use the `dir_editor` config option. For example:
 
 ```bash
 EDITOR=nvim
@@ -168,8 +166,7 @@ editor = "nano"
 dir_editor = "vi"
 ```
 
-These are changes in config file. See [superfile-config](/configure/superfile-config) for more info.
-This will set `nano` as your default editor, and `vi` as your default directory editor. After setting this, `nano` will be used when opening files with the `e` key bindings, and `vi` will be used to open current directory with `E` key bindings.
+These are changes in config file. See [superfile-config](/configure/superfile-config) for more info. This will set `nano` as your default editor, and `vi` as your default directory editor. After setting this, `nano` will be used when opening files with the `e` key bindings, and `vi` will be used to open current directory with `E` key bindings.
 
 :::caution
 If your directory editor does not support opening the current directory with an editor, you may encounter an error when pressing `E`.
@@ -178,28 +175,27 @@ If your directory editor does not support opening the current directory with an 
 ![file-operations-demo](../../../assets/demo/file-operations-demo.gif)
 
 ### SPF Prompt
+
 #### Shell Mode
-Press `:` to open the prompt in shell mode, and execute any shell command in the current directory.
-![Prompt-Shell-Mode](../../../assets/tutorial/prompt_shell_mode.png)
+
+Press `:` to open the prompt in shell mode, and execute any shell command in the current directory. ![Prompt-Shell-Mode](../../../assets/tutorial/prompt_shell_mode.png)
 
 :::note
-You won't receive any stdout outputs.
-For now, this is meant for executing more complex file manipulations via the shell,
-rather than handling interactive outputs.
-You will be able to see the exit code of the command.
+You won't receive any stdout outputs. For now, this is meant for executing more complex file manipulations via the shell, rather than handling interactive outputs. You will be able to see the exit code of the command.
 :::
 
 #### SPF Mode
-Press `>` to open the prompt in SPF mode. 
-![Prompt-SPF-Mode](../../../assets/tutorial/prompt_spf_mode.png)
+
+Press `>` to open the prompt in SPF mode. ![Prompt-SPF-Mode](../../../assets/tutorial/prompt_spf_mode.png)
 
 In this mode, you can execute these spf commands :
+
 - `split` - Open a new panel at a current file panel's path.
 - `open <PATH>` - Open a new panel at a specified path.
 - `cd <PATH>` - Change directory of current panel.
 
-In this mode, You can substitute shell environment variables via `${}`, shell commands via `$()` and prefix path with `~` to get substituted to home directory 
-For example 
+In this mode, You can substitute shell environment variables via `${}`, shell commands via `$()` and prefix path with `~` to get substituted to home directory For example
+
 - `cd ${HOME}` or `cd ~/xyz`
 - `open $(dirname $(which bash))`
 
