@@ -71,3 +71,14 @@ button {
 	border: none;
 	background: none;
 }
+
+/* ── View Transitions (SPA navigation) ──────────────────────────────────────── */
+@keyframes spf-fade-in  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes spf-fade-out { from { opacity: 1; } to { opacity: 0; } }
+
+::view-transition-old(root) {
+	animation: 120ms ease-in spf-fade-out both;
+}
+::view-transition-new(root) {
+	animation: 180ms ease-out spf-fade-in both;
+}

@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import type { MarkdownHeading } from "astro";
+import { ClientRouter } from "astro:transitions";
 import SiteNav from "../components/SiteNav.astro";
 import "../styles/global.css";
 import "../styles/docs.css";
@@ -65,6 +66,8 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
     {description && <meta property="og:description" content={description} />}
     <meta property="og:image" content={`${siteUrl}/og.jpg?v=1`} />
     <meta name="twitter:card" content="summary_large_image" />
+
+    <ClientRouter />
 
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" />
@@ -223,70 +226,86 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
     </div><!-- /.docs-shell -->
 
     <script>
-      // ── Mobile sidebar toggle ─────────────────────────────────────────────
-      const menuBtn = document.getElementById("docs-menu-btn");
-      const sidebar = document.getElementById("docs-sidebar");
-      const overlay = document.getElementById("docs-overlay");
+      // ── Module-scoped state (persists across SPA navigations) ─────────────
+      let _tocObserver: IntersectionObserver | null = null;
 
-      function openSidebar() {
-        sidebar?.classList.add("docs-sidebar--open");
-        overlay?.classList.add("docs-overlay--visible");
-        document.body.style.overflow = "hidden";
-      }
-
-      function closeSidebar() {
-        sidebar?.classList.remove("docs-sidebar--open");
-        overlay?.classList.remove("docs-overlay--visible");
+      // Restore body scroll on every navigation (sidebar may have locked it)
+      document.addEventListener("astro:before-swap", () => {
         document.body.style.overflow = "";
-      }
-
-      menuBtn?.addEventListener("click", () => {
-        sidebar?.classList.contains("docs-sidebar--open") ? closeSidebar() : openSidebar();
       });
 
-      overlay?.addEventListener("click", closeSidebar);
+      // Re-initialise all docs interactivity after every page load
+      document.addEventListener("astro:page-load", () => {
+        // ── Mobile sidebar toggle ───────────────────────────────────────────
+        const menuBtn = document.getElementById("docs-menu-btn");
+        const sidebar = document.getElementById("docs-sidebar");
+        const overlay = document.getElementById("docs-overlay");
 
-      // ── Copy buttons ──────────────────────────────────────────────────────
-      document.querySelectorAll("pre").forEach((pre) => {
-        const btn = document.createElement("button");
-        btn.className = "docs-copy-btn";
-        btn.textContent = "copy";
-        btn.addEventListener("click", () => {
-          const code = pre.querySelector("code");
-          if (!code) return;
-          navigator.clipboard.writeText(code.innerText).then(() => {
-            btn.textContent = "copied!";
-            setTimeout(() => (btn.textContent = "copy"), 2000);
-          });
+        function openSidebar() {
+          sidebar?.classList.add("docs-sidebar--open");
+          overlay?.classList.add("docs-overlay--visible");
+          document.body.style.overflow = "hidden";
+        }
+
+        function closeSidebar() {
+          sidebar?.classList.remove("docs-sidebar--open");
+          overlay?.classList.remove("docs-overlay--visible");
+          document.body.style.overflow = "";
+        }
+
+        menuBtn?.addEventListener("click", () => {
+          sidebar?.classList.contains("docs-sidebar--open") ? closeSidebar() : openSidebar();
         });
-        pre.appendChild(btn);
-      });
 
-      // ── TOC active state (IntersectionObserver) ───────────────────────────
-      const tocItems = document.querySelectorAll<HTMLElement>("[data-heading]");
-      if (tocItems.length) {
-        const headingEls = Array.from(tocItems)
-          .map((item) => document.getElementById(item.dataset.heading!))
-          .filter(Boolean) as HTMLElement[];
+        overlay?.addEventListener("click", closeSidebar);
 
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              const id = entry.target.id;
-              const tocItem = document.querySelector(`[data-heading="${id}"]`);
-              if (entry.isIntersecting) {
-                document.querySelectorAll(".docs-toc-item--active").forEach((el) =>
-                  el.classList.remove("docs-toc-item--active")
-                );
-                tocItem?.classList.add("docs-toc-item--active");
-              }
+        // ── Copy buttons ────────────────────────────────────────────────────
+        document.querySelectorAll("pre").forEach((pre) => {
+          // Avoid double-adding on re-renders
+          if (pre.querySelector(".docs-copy-btn")) return;
+          const btn = document.createElement("button");
+          btn.className = "docs-copy-btn";
+          btn.textContent = "copy";
+          btn.addEventListener("click", () => {
+            const code = pre.querySelector("code");
+            if (!code) return;
+            navigator.clipboard.writeText(code.innerText).then(() => {
+              btn.textContent = "copied!";
+              setTimeout(() => (btn.textContent = "copy"), 2000);
             });
-          },
-          { rootMargin: "-20% 0% -60% 0%" }
-        );
+          });
+          pre.appendChild(btn);
+        });
 
-        headingEls.forEach((el) => observer.observe(el));
-      }
+        // ── TOC active state (IntersectionObserver) ─────────────────────────
+        _tocObserver?.disconnect();
+        _tocObserver = null;
+
+        const tocItems = document.querySelectorAll<HTMLElement>("[data-heading]");
+        if (tocItems.length) {
+          const headingEls = Array.from(tocItems)
+            .map((item) => document.getElementById(item.dataset.heading!))
+            .filter(Boolean) as HTMLElement[];
+
+          _tocObserver = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                const id = entry.target.id;
+                const tocItem = document.querySelector(`[data-heading="${id}"]`);
+                if (entry.isIntersecting) {
+                  document.querySelectorAll(".docs-toc-item--active").forEach((el) =>
+                    el.classList.remove("docs-toc-item--active")
+                  );
+                  tocItem?.classList.add("docs-toc-item--active");
+                }
+              });
+            },
+            { rootMargin: "-20% 0% -60% 0%" }
+          );
+
+          headingEls.forEach((el) => _tocObserver!.observe(el));
+        }
+      });
     </script>
   </body>
 </html>

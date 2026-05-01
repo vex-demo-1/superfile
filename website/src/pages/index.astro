@@ -501,108 +501,122 @@ const installCommands = [
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
   gsap.registerPlugin(ScrollTrigger);
 
-  // ── Entrance animations ────────────────────────────────────────────
-  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-
-  tl.from('#site-nav', { y: -16, opacity: 0, duration: 0.5 })
-    .from('#hero-title', { y: 32, opacity: 0, duration: 0.7 }, '-=0.2')
-    .from('#hero-tagline', { y: 20, opacity: 0, duration: 0.6 }, '-=0.4')
-    .from('#hero-actions', { y: 16, opacity: 0, duration: 0.5 }, '-=0.4')
-    .from(
-      '#hero-demo',
-      { y: 48, opacity: 0, duration: 1, ease: 'power4.out' },
-      '-=0.3',
-    )
-    .from('#stats-bar', { opacity: 0, duration: 0.5 }, '-=0.4');
-
-  // ── Scroll-triggered animations ────────────────────────────────────
-  gsap.from('.intro-text', {
-    scrollTrigger: { trigger: '.intro', start: 'top 80%' },
-    y: 24,
-    opacity: 0,
-    duration: 0.7,
-    ease: 'power3.out',
+  // Kill all ScrollTrigger instances before every SPA swap so we start clean
+  document.addEventListener('astro:before-swap', () => {
+    ScrollTrigger.getAll().forEach((t) => t.kill());
   });
 
-  gsap.from('.feature-card', {
-    scrollTrigger: {
-      trigger: '.features-grid',
-      start: 'top 80%',
-    },
-    y: 32,
-    opacity: 0,
-    duration: 0.6,
-    stagger: 0.08,
-    ease: 'power3.out',
-  });
+  document.addEventListener('astro:page-load', () => {
+    // Kill any lingering instances (e.g. after back-navigation)
+    ScrollTrigger.getAll().forEach((t) => t.kill());
 
-  gsap.from('.install-widget', {
-    scrollTrigger: { trigger: '#install', start: 'top 75%' },
-    y: 24,
-    opacity: 0,
-    duration: 0.7,
-    ease: 'power3.out',
-  });
+    // ── Entrance animations (only on initial hard load, skip SPA re-visits) ──
+    const isFirstVisit = !document.documentElement.hasAttribute('data-spf-visited');
+    if (isFirstVisit) {
+      document.documentElement.setAttribute('data-spf-visited', '');
 
-  gsap.from('.demo-card', {
-    scrollTrigger: {
-      trigger: '.demos-grid',
-      start: 'top 80%',
-    },
-    scale: 0.96,
-    opacity: 0,
-    duration: 0.5,
-    stagger: 0.07,
-    ease: 'power3.out',
-  });
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      tl.from('#site-nav', { y: -16, opacity: 0, duration: 0.5 })
+        .from('#hero-title', { y: 32, opacity: 0, duration: 0.7 }, '-=0.2')
+        .from('#hero-tagline', { y: 20, opacity: 0, duration: 0.6 }, '-=0.4')
+        .from('#hero-actions', { y: 16, opacity: 0, duration: 0.5 }, '-=0.4')
+        .from(
+          '#hero-demo',
+          { y: 48, opacity: 0, duration: 1, ease: 'power4.out' },
+          '-=0.3',
+        )
+        .from('#stats-bar', { opacity: 0, duration: 0.5 }, '-=0.4');
+    }
 
-  gsap.from('.community-box', {
-    scrollTrigger: { trigger: '#community', start: 'top 75%' },
-    y: 24,
-    opacity: 0,
-    duration: 0.7,
-    ease: 'power3.out',
-  });
-
-  // ── Install tabs ───────────────────────────────────────────────────
-  const tabs = document.querySelectorAll<HTMLButtonElement>('.install-tab');
-  const panels = document.querySelectorAll<HTMLElement>('.install-panel');
-
-  tabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      const id = tab.dataset.tab;
-
-      tabs.forEach((t) => {
-        t.classList.remove('is-active');
-        t.setAttribute('aria-selected', 'false');
-      });
-      panels.forEach((p) => {
-        p.classList.remove('is-active');
-        p.setAttribute('aria-hidden', 'true');
-      });
-
-      tab.classList.add('is-active');
-      tab.setAttribute('aria-selected', 'true');
-
-      const panel = document.getElementById(`panel-${id}`);
-      if (panel) {
-        panel.classList.add('is-active');
-        panel.removeAttribute('aria-hidden');
-      }
+    // ── Scroll-triggered animations ────────────────────────────────────────
+    gsap.from('.intro-text', {
+      scrollTrigger: { trigger: '.intro', start: 'top 80%' },
+      y: 24,
+      opacity: 0,
+      duration: 0.7,
+      ease: 'power3.out',
     });
-  });
 
-  // ── Copy to clipboard ──────────────────────────────────────────────
-  document.querySelectorAll<HTMLButtonElement>('.copy-btn').forEach((btn) => {
-    btn.addEventListener('click', async () => {
-      const text = btn.dataset.copy ?? '';
-      try {
-        await navigator.clipboard.writeText(text);
-        btn.classList.add('copied');
-        setTimeout(() => btn.classList.remove('copied'), 2000);
-      } catch {
-        /* fallback – select text manually */
-      }
+    gsap.from('.feature-card', {
+      scrollTrigger: {
+        trigger: '.features-grid',
+        start: 'top 80%',
+      },
+      y: 32,
+      opacity: 0,
+      duration: 0.6,
+      stagger: 0.08,
+      ease: 'power3.out',
+    });
+
+    gsap.from('.install-widget', {
+      scrollTrigger: { trigger: '#install', start: 'top 75%' },
+      y: 24,
+      opacity: 0,
+      duration: 0.7,
+      ease: 'power3.out',
+    });
+
+    gsap.from('.demo-card', {
+      scrollTrigger: {
+        trigger: '.demos-grid',
+        start: 'top 80%',
+      },
+      scale: 0.96,
+      opacity: 0,
+      duration: 0.5,
+      stagger: 0.07,
+      ease: 'power3.out',
+    });
+
+    gsap.from('.community-box', {
+      scrollTrigger: { trigger: '#community', start: 'top 75%' },
+      y: 24,
+      opacity: 0,
+      duration: 0.7,
+      ease: 'power3.out',
+    });
+
+    // ── Install tabs ─────────────────────────────────────────────────────────
+    const tabs = document.querySelectorAll<HTMLButtonElement>('.install-tab');
+    const panels = document.querySelectorAll<HTMLElement>('.install-panel');
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const id = tab.dataset.tab;
+
+        tabs.forEach((t) => {
+          t.classList.remove('is-active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        panels.forEach((p) => {
+          p.classList.remove('is-active');
+          p.setAttribute('aria-hidden', 'true');
+        });
+
+        tab.classList.add('is-active');
+        tab.setAttribute('aria-selected', 'true');
+
+        const panel = document.getElementById(`panel-${id}`);
+        if (panel) {
+          panel.classList.add('is-active');
+          panel.removeAttribute('aria-hidden');
+        }
+      });
+    });
+
+    // ── Copy to clipboard ────────────────────────────────────────────────────
+    document.querySelectorAll<HTMLButtonElement>('.copy-btn').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const text = btn.dataset.copy ?? '';
+        try {
+          await navigator.clipboard.writeText(text);
+          btn.classList.add('copied');
+          setTimeout(() => btn.classList.remove('copied'), 2000);
+        } catch {
+          /* fallback – select text manually */
+        }
+      });
     });
   });
 </script>

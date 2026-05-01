@@ -273,5 +273,6 @@ const langLabel = isZhTw ? "English" : "繁體中文";
       /* silent */
     }
   }
-  loadStars();
+  // Run on every page (initial load + SPA navigations)
+  document.addEventListener('astro:page-load', loadStars);
 </script>

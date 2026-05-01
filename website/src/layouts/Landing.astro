@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 
 interface Props {
@@ -32,6 +33,8 @@ const {
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="https://superfile.dev/og.jpg?v=1" />
+
+    <ClientRouter />
 
     <!-- IBM Plex Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
