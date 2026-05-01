@@ -1,35 +1,60 @@
-/* ── Design tokens ─────────────────────────────────────────────────────────── */
+/* ── Design tokens — Catppuccin Mocha ──────────────────────────────────────── */
 :root {
 	--font-body:  GenSenRoundedTW, "GenSenRounded2 TW", sans-serif;
 	--font-mono:  JetBrainsMono, "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
 
-	--bg:         #09090b;
-	--bg-1:       #111115;
-	--bg-2:       #18181b;
-	--bg-3:       #27272a;
+	--bg:         #1e1e2e;
+	--bg-1:       #313244;
+	--bg-2:       #45475a;
+	--bg-3:       #585b70;
 
-	--border:     rgba(255, 255, 255, 0.06);
-	--border-1:   rgba(255, 255, 255, 0.10);
-	--border-2:   rgba(255, 255, 255, 0.18);
+	--border:     rgba(205, 214, 244, 0.06);
+	--border-1:   rgba(205, 214, 244, 0.10);
+	--border-2:   rgba(205, 214, 244, 0.18);
 
-	--text:       #fafafa;
-	--text-1:     #d4d4d8;
-	--text-2:     #a1a1aa;
-	--text-3:     #71717a;
-	--text-4:     #3f3f46;
+	--text:       #cdd6f4;
+	--text-1:     #bac2de;
+	--text-2:     #a6adc8;
+	--text-3:     #7f849c;
+	--text-4:     #6c7086;
 
-	--green:      #4ade80;
-	--green-1:    #22c55e;
-	--green-dim:  rgba(74, 222, 128, 0.12);
-	--green-glow: rgba(74, 222, 128, 0.25);
+	--green:      #a6e3a1;
+	--green-1:    #94e2d5;
+	--green-dim:  rgba(166, 227, 161, 0.12);
+	--green-glow: rgba(166, 227, 161, 0.25);
 
-	--amber:      #fbbf24;
-	--amber-1:    #f59e0b;
-	--amber-dim:  rgba(251, 191, 36, 0.10);
-	--amber-glow: rgba(251, 191, 36, 0.22);
+	--amber:      #f9e2af;
+	--amber-1:    #fab387;
+	--amber-dim:  rgba(249, 226, 175, 0.10);
+	--amber-glow: rgba(249, 226, 175, 0.22);
 
 	--radius:     0.375rem;
 	--radius-lg:  0.625rem;
+}
+
+@supports (color: oklch(0 0 0)) {
+	:root {
+		--bg:         oklch(0.17 0.033 285.64);
+		--bg-1:       oklch(0.23 0.04 282.91);
+		--bg-2:       oklch(0.32 0.04 279.74);
+		--bg-3:       oklch(0.41 0.04 278.96);
+
+		--text:       oklch(0.88 0.04 272.28);
+		--text-1:     oklch(0.79 0.04 278.39);
+		--text-2:     oklch(0.72 0.04 277.21);
+		--text-3:     oklch(0.58 0.04 276.93);
+		--text-4:     oklch(0.50 0.04 278.47);
+
+		--green:      oklch(0.88 0.11 145.58);
+		--green-1:    oklch(0.85 0.07 190.58);
+		--green-dim:  oklch(0.88 0.11 145.58 / 0.12);
+		--green-glow: oklch(0.88 0.11 145.58 / 0.25);
+
+		--amber:      oklch(0.92 0.08 84.37);
+		--amber-1:    oklch(0.79 0.11 49.12);
+		--amber-dim:  oklch(0.92 0.08 84.37 / 0.10);
+		--amber-glow: oklch(0.92 0.08 84.37 / 0.22);
+	}
 }
 
 /* ── Reset ─────────────────────────────────────────────────────────────────── */

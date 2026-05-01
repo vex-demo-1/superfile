@@ -2,30 +2,47 @@
 :root {
 	--d-bg: var(--bg);
 	--d-bg-raised: var(--bg-1);
-	--d-bg-hover: #161616;
+	--d-bg-hover: var(--bg-1);
 	--d-border: var(--border);
 	--d-border-mid: var(--border-1);
 
 	--d-text: var(--text-1);
-	--d-text-muted: #666;
-	--d-text-dim: #999;
+	--d-text-muted: #6c7086;
+	--d-text-dim: #9399b2;
 
 	--d-green: var(--green);
-	--d-green-dim: rgba(74, 222, 128, 0.08);
-	--d-green-border: rgba(74, 222, 128, 0.3);
+	--d-green-dim: rgba(166, 227, 161, 0.08);
+	--d-green-border: rgba(166, 227, 161, 0.3);
 
-	--d-tip: #22d3ee;
-	--d-tip-bg: rgba(34, 211, 238, 0.07);
-	--d-caution: #fb923c;
-	--d-caution-bg: rgba(251, 146, 60, 0.07);
-	--d-note: #a78bfa;
-	--d-note-bg: rgba(167, 139, 250, 0.07);
-	--d-danger: #f87171;
-	--d-danger-bg: rgba(248, 113, 113, 0.07);
+	--d-tip: #89dceb;
+	--d-tip-bg: rgba(137, 220, 235, 0.07);
+	--d-caution: #fab387;
+	--d-caution-bg: rgba(250, 179, 135, 0.07);
+	--d-note: #cba6f7;
+	--d-note-bg: rgba(203, 166, 247, 0.07);
+	--d-danger: #f38ba8;
+	--d-danger-bg: rgba(243, 139, 168, 0.07);
 
 	--d-sidebar-w: 15.5rem;
 	--d-toc-w: 12.5rem;
 	--d-header-h: 3.5rem;
+}
+
+@supports (color: oklch(0 0 0)) {
+	:root {
+		--d-text-muted: oklch(0.50 0.04 278.47);
+		--d-text-dim: oklch(0.64 0.04 276.81);
+		--d-green-dim: oklch(0.88 0.11 145.58 / 0.08);
+		--d-green-border: oklch(0.88 0.11 145.58 / 0.3);
+		--d-tip: oklch(0.86 0.08 210.25);
+		--d-tip-bg: oklch(0.86 0.08 210.25 / 0.07);
+		--d-caution: oklch(0.79 0.11 49.12);
+		--d-caution-bg: oklch(0.79 0.11 49.12 / 0.07);
+		--d-note: oklch(0.77 0.12 305.88);
+		--d-note-bg: oklch(0.77 0.12 305.88 / 0.07);
+		--d-danger: oklch(0.74 0.13 359.34);
+		--d-danger-bg: oklch(0.74 0.13 359.34 / 0.07);
+	}
 }
 
 /* ── Header ────────────────────────────────────────────────────────────────── */
@@ -36,7 +53,7 @@
 	right: 0;
 	height: var(--d-header-h);
 	z-index: 100;
-	background: rgba(10, 10, 10, 0.92);
+	background: rgba(30, 30, 46, 0.92);
 	backdrop-filter: blur(12px);
 	-webkit-backdrop-filter: blur(12px);
 	border-bottom: 1px solid var(--d-border);
@@ -370,7 +387,7 @@
 .docs-content h1 {
 	font-size: 1.8rem;
 	font-weight: 700;
-	color: #f0f0f0;
+	color: var(--text);
 	margin: 0 0 0.25rem;
 	line-height: 1.2;
 	letter-spacing: -0.02em;
@@ -384,7 +401,7 @@
 .docs-content h2 {
 	font-size: 1.15rem;
 	font-weight: 700;
-	color: #e8e8e8;
+	color: var(--text);
 	margin: 2.5rem 0 0.75rem;
 	padding-bottom: 0.4rem;
 	border-bottom: 1px solid var(--d-border);
@@ -447,12 +464,12 @@
 }
 
 .docs-content a:hover {
-	color: #86efac;
+	color: var(--green-1);
 	border-bottom-color: var(--d-green);
 }
 
 .docs-content strong {
-	color: #f0f0f0;
+	color: var(--text);
 	font-weight: 700;
 }
 
@@ -625,8 +642,8 @@
 
 .doc-aside--tip {
 	background: var(--d-tip-bg);
-	border-color: rgba(34, 211, 238, 0.25);
-	color: #a0e8f0;
+	border-color: rgba(137, 220, 235, 0.25);
+	color: #89dceb;
 }
 .doc-aside--tip::before {
 	content: "tip";
@@ -635,8 +652,8 @@
 
 .doc-aside--caution {
 	background: var(--d-caution-bg);
-	border-color: rgba(251, 146, 60, 0.25);
-	color: #f3c6a0;
+	border-color: rgba(250, 179, 135, 0.25);
+	color: #fab387;
 }
 .doc-aside--caution::before {
 	content: "caution";
@@ -645,8 +662,8 @@
 
 .doc-aside--note {
 	background: var(--d-note-bg);
-	border-color: rgba(167, 139, 250, 0.25);
-	color: #c4b5f7;
+	border-color: rgba(203, 166, 247, 0.25);
+	color: #cba6f7;
 }
 .doc-aside--note::before {
 	content: "note";
@@ -655,8 +672,8 @@
 
 .doc-aside--danger {
 	background: var(--d-danger-bg);
-	border-color: rgba(248, 113, 113, 0.25);
-	color: #f9b4b4;
+	border-color: rgba(243, 139, 168, 0.25);
+	color: #f38ba8;
 }
 .doc-aside--danger::before {
 	content: "danger";
