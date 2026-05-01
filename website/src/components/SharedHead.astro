@@ -1,0 +1,40 @@
+---
+import { ClientRouter } from "astro:transitions";
+
+const enableAnalytics = import.meta.env.PROD;
+---
+
+<ClientRouter />
+
+<!-- Favicon -->
+<link rel="icon" href="/logo.svg" type="image/svg+xml" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://font.emtech.cc" />
+<link rel="stylesheet" href="https://font.emtech.cc/css/GenSenRoundedTW" />
+<link rel="stylesheet" href="https://font.emtech.cc/css/JetBrainsMono" />
+
+<!-- Analytics -->
+{
+	enableAnalytics && (
+		<script is:inline>
+			(() => {
+				const analyticsHosts = new Set(["superfile.dev", "www.superfile.dev"]);
+				if (!analyticsHosts.has(window.location.hostname)) return;
+
+				window.minimalAnalytics = { trackingId: "G-WFLBCRZ7MC", autoTrack: true };
+
+				const ga = document.createElement("script");
+				ga.src = "https://cdn.jsdelivr.net/npm/@minimal-analytics/ga4/dist/index.js";
+				ga.async = true;
+				document.head.append(ga);
+
+				const umami = document.createElement("script");
+				umami.src = "https://umami.yorukot.me/script.js";
+				umami.defer = true;
+				umami.dataset.websiteId = "8792ee93-9a4a-47be-9e7f-2b1587c3a3d1";
+				document.head.append(umami);
+			})();
+		</script>
+	)
+}

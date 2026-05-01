@@ -278,7 +278,7 @@
 /* Top-level single entries */
 .docs-nav-leaf {
 	display: block;
-	padding: 0.3rem 1rem 0.3rem 1.25rem;
+	padding: 0.5rem 1rem 0.5rem 1.5rem;
 	font-size: 0.82rem;
 	color: var(--d-text-dim);
 	text-decoration: none;

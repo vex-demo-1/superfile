@@ -1,5 +1,5 @@
 ---
-import { ClientRouter } from "astro:transitions";
+import SharedHead from "../components/SharedHead.astro";
 import "../styles/global.css";
 
 interface Props {
@@ -23,36 +23,16 @@ const canonicalUrl = new URL(canonicalPath, "https://superfile.dev").href;
 		<meta name="theme-color" content="#1e1e2e" />
 		<title>{title}</title>
 
-		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-
 		<!-- Open Graph -->
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
-		<meta property="og:image" content="https://superfile.dev/og.jpg?v=1" />
+		<meta property="og:image" content="https://superfile.dev/og.png?v=1" />
 		<meta property="og:url" content={canonicalUrl} />
 		<meta property="og:type" content="website" />
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:image" content="https://superfile.dev/og.jpg?v=1" />
+		<meta name="twitter:image" content="https://superfile.dev/og.png?v=1" />
 
-		<ClientRouter />
-
-		<!-- IBM Plex Mono -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
-		<noscript>
-			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" />
-		</noscript>
-
-		<!-- Analytics -->
-		<script async src="https://cdn.jsdelivr.net/npm/@minimal-analytics/ga4/dist/index.js"></script>
-		<script>
-			window.minimalAnalytics = {
-				trackingId: "G-WFLBCRZ7MC",
-				autoTrack: true
-			};
-		</script>
-		{import.meta.env.PROD && <script defer src="https://umami.yorukot.me/script.js" data-website-id="8792ee93-9a4a-47be-9e7f-2b1587c3a3d1" />}
+		<SharedHead />
 	</head>
 	<body>
 		<slot />
