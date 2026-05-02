@@ -2,6 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import { getEntry } from "astro:content";
 import type { MarkdownHeading } from "astro";
+import Giscus from "../components/Giscus.astro";
 import SharedHead from "../components/SharedHead.astro";
 import SiteNav from "../components/SiteNav.astro";
 import "../styles/global.css";
@@ -162,24 +163,7 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 
 						<!-- Giscus comments -->
 						<div class="docs-giscus">
-							<script
-								src="https://giscus.app/client.js"
-								data-repo="yorukot/superfile"
-								data-repo-id="R_kgDOLil1MA"
-								data-category="Docs Comments"
-								data-category-id="DIC_kwDOLil1MM4CfbH7"
-								data-mapping="specific"
-								data-term={giscusTerm}
-								data-strict="0"
-								data-reactions-enabled="1"
-								data-emit-metadata="0"
-								data-input-position="top"
-								data-theme="dark_dimmed"
-								data-lang={isZhTw ? "zh-TW" : "en"}
-								data-loading="lazy"
-								crossorigin="anonymous"
-								async
-							></script>
+							<Giscus term={giscusTerm} theme="dark_dimmed" lang={isZhTw ? "zh-TW" : "en"} />
 						</div>
 					</main>
 

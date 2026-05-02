@@ -1,5 +1,6 @@
 ---
 import Landing from "../layouts/Landing.astro";
+import Giscus from "../components/Giscus.astro";
 import SiteNav from "../components/SiteNav.astro";
 import { Image } from "astro:assets";
 import demo from "../assets/demo.png";
@@ -352,24 +353,7 @@ const installCommands = [
 					<span class="section-label">{t.comments.label}</span>
 					<div class="section-rule" aria-hidden="true"></div>
 				</div>
-				<script
-					src="https://giscus.app/client.js"
-					data-repo="yorukot/superfile"
-					data-repo-id="R_kgDOLil1MA"
-					data-category="Docs Comments"
-					data-category-id="DIC_kwDOLil1MM4CfbH7"
-					data-mapping="specific"
-					data-term={giscusTerm}
-					data-strict="0"
-					data-reactions-enabled="1"
-					data-emit-metadata="0"
-					data-input-position="top"
-					data-theme="dark"
-					data-lang={t.comments.giscusLang}
-					data-loading="lazy"
-					crossorigin="anonymous"
-					async
-				></script>
+				<Giscus term={giscusTerm} theme="dark" lang={t.comments.giscusLang} />
 			</div>
 		</section>
 	</main>
