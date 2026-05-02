@@ -28,6 +28,7 @@ const rootPath = isZhTw ? "/zh-tw/" : "/";
 const docsPath = `${localePrefix}/overview`;
 const installPath = `${localePrefix}/getting-started/installation`;
 const changelogPath = `${localePrefix}/changelog`;
+const giscusTerm = homeI18n.en.title;
 
 const demos = [
 	{ gif: gifFileOps, ...t.demos.items[0] },
@@ -357,7 +358,8 @@ const installCommands = [
 					data-repo-id="R_kgDOLil1MA"
 					data-category="Docs Comments"
 					data-category-id="DIC_kwDOLil1MM4CfbH7"
-					data-mapping="title"
+					data-mapping="specific"
+					data-term={giscusTerm}
 					data-strict="0"
 					data-reactions-enabled="1"
 					data-emit-metadata="0"

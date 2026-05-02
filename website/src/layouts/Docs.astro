@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { getEntry } from "astro:content";
 import type { MarkdownHeading } from "astro";
 import SharedHead from "../components/SharedHead.astro";
 import SiteNav from "../components/SiteNav.astro";
@@ -21,6 +22,8 @@ const isZhTw = entry.id.startsWith("zh-tw/");
 const baseSlug = isZhTw ? entry.id.replace(/^zh-tw\//, "") : entry.id;
 const locale = isZhTw ? "zh-tw" : "";
 const localePrefix = isZhTw ? "/zh-tw" : "";
+const enEntry = isZhTw ? await getEntry("docs", baseSlug) : entry;
+const giscusTerm = `${enEntry?.data.title ?? title} | superfile`;
 
 // Current path for active detection
 const currentPath = Astro.url.pathname.replace(/\/$/, "");
@@ -165,7 +168,8 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 								data-repo-id="R_kgDOLil1MA"
 								data-category="Docs Comments"
 								data-category-id="DIC_kwDOLil1MM4CfbH7"
-								data-mapping="title"
+								data-mapping="specific"
+								data-term={giscusTerm}
 								data-strict="0"
 								data-reactions-enabled="1"
 								data-emit-metadata="0"
