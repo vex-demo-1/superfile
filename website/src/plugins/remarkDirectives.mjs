@@ -1,7 +1,11 @@
 import { visit } from "unist-util-visit";
 
 /**
- * Converts remark-directive container nodes (:::tip, :::caution, :::note)
+ * Converts remark-directive container nodes (:::tip,
+
+:::caution,
+
+:::note)
  * into <aside> elements that docs.css can style.
  */
 export function remarkDirectivesHandler() {

@@ -9,11 +9,15 @@ head:
 This tutorial will teach you how to use superfile step by step.
 
 :::caution
+
 If you haven't installed superfile yet, please [click here](/getting-started/installation).
+
 :::
 
 :::tip
+
 A full list of hotkeys are available [here](/list/hotkey-list)
+
 :::
 
 ## Hotkeys tutorial
@@ -56,9 +60,11 @@ Also press `F` to hide or show all footer panel.
 ![panel-navigation-demo](../../../assets/demo/panel-navigation-demo.gif)
 
 :::tip
+
 The size of the folder will only be shown when you focus on the metadata.
 
 For more detailed metadata, [click here](/configure/enable-plugin) to install the metadata plugin.
+
 :::
 
 To create more file panels, press `n`. Press `w` to close the focused file panel.
@@ -100,7 +106,9 @@ Press `v` to toggle between selection mode and normal (browser) mode.
 Once in selection mode, you can perform [file operations](#file-operations) on all selected files/folders. [Panel movement](#panel-movement) hotkeys also work in selection mode.
 
 :::tip
+
 The following operations can only be performed while in selection mode. Your current mode is displayed in the lower-right corner of the file panel (Select or Browser).
+
 :::
 
 To make selections, navigate to your file/folder and press `enter` or `L` (shift+l). Press the same key again to deselect.
@@ -114,7 +122,9 @@ You can also press `A` (shift+a) to select everything in the current directory.
 ### File operations
 
 :::note
+
 Only copy, cut and delete can be used in selection mode.
+
 :::
 
 Now let's learn how to perform file operations.
@@ -122,9 +132,11 @@ Now let's learn how to perform file operations.
 Create a new file with `ctrl`+`n`. Type your new file's name and press `enter`. To create a new folder, add `/` to the end of the name.
 
 :::tip
+
 You can create a directory, subdirectory and file in one string. For example:
 
 `directory/subdirectory/filename`
+
 :::
 
 To rename, point your cursor at a file/folder and press `ctrl`+`r`.
@@ -138,13 +150,17 @@ Both cut and copied items are shown in the clipboard panel (lower-right corner).
 To paste, you can press `ctrl`+`v`.
 
 :::note
+
 In some terminals, for example Windows Powershell, `ctrl`+`v` pastes input from clipboard to terminal. So, `ctrl`+`v` might not work for paste. Either you can add `ctrl`+`w` hotkey for paste, or override default behaviour of `ctrl`+`v` on your terminal.
+
 :::
 
 To delete, you can press `ctrl`+`d`
 
 :::note
+
 The deletion here is not direct deletion, but will be placed in the trash can. However, when you use an external hard drive, it will be deleted directly.
+
 :::
 
 To compress, press `ctrl`+`a`. To decompress, press `ctrl`+`e`.
@@ -169,7 +185,9 @@ dir_editor = "vi"
 These are changes in config file. See [superfile-config](/configure/superfile-config) for more info. This will set `nano` as your default editor, and `vi` as your default directory editor. After setting this, `nano` will be used when opening files with the `e` key bindings, and `vi` will be used to open current directory with `E` key bindings.
 
 :::caution
+
 If your directory editor does not support opening the current directory with an editor, you may encounter an error when pressing `E`.
+
 :::
 
 ![file-operations-demo](../../../assets/demo/file-operations-demo.gif)
@@ -181,7 +199,9 @@ If your directory editor does not support opening the current directory with an 
 Press `:` to open the prompt in shell mode, and execute any shell command in the current directory. ![Prompt-Shell-Mode](../../../assets/tutorial/prompt_shell_mode.png)
 
 :::note
+
 You won't receive any stdout outputs. For now, this is meant for executing more complex file manipulations via the shell, rather than handling interactive outputs. You will be able to see the exit code of the command.
+
 :::
 
 #### SPF Mode

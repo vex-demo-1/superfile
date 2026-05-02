@@ -15,7 +15,9 @@ $EDITOR config_path
 ```
 
 :::tip
+
 若要查看 superfile 檔案的路徑位置，請使用 `spf pl` 指令。
+
 :::
 
 ### 設定
@@ -105,9 +107,11 @@ notepad $PROFILE
 ```
 
 :::note
+
 你需要確認 powershell 允許執行 script。如果出現像 `running scripts is disabled on this system` 這樣的錯誤，就需要允許它。
 
 啟用範例指令：`Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
+
 :::
 
 - ###### default_open_file_preview
@@ -199,7 +203,9 @@ File panel 中除檔名外的額外欄位數量。
 `0` => 停用額外欄位功能 `1` => 也顯示大小欄位 `2` => 也顯示修改日期 `3` => 也顯示權限欄位
 
 :::caution
+
 即使已啟用額外欄位，如果 filepanel 尺寸太小，欄位仍會被隱藏。如果看不到欄位，請增加大小或調整 file_panel_name_percent 設定。
+
 :::
 
 - ###### file_panel_name_percent
@@ -225,7 +231,9 @@ File panel 中除檔名外的額外欄位數量。
 `false` => 不在 select mode 顯示 checkbox icons。
 
 :::note
+
 除非 `nerdfont = true`，否則此設定會被忽略。`nerdfont` 和 `show_select_icons` 都必須為 `true`，checkbox icons 才會出現。
+
 :::
 
 - ###### transparent_background
@@ -243,7 +251,9 @@ File panel 中除檔名外的額外欄位數量。
 `X` => 檔案預覽視窗寬度為終端機寬度（扣除 sidebar 寬度）的 1/`X`。計算方式為：(terminal width - sidebar width) / `X`
 
 :::caution
+
 `X` 必須介於 2 到 10。
+
 :::
 
 - ###### enable_file_preview_border
@@ -261,7 +271,9 @@ File panel 中除檔名外的額外欄位數量。
 `X` => sidebar 的寬度（不含邊框）。
 
 :::caution
+
 `X` 必須介於 5 到 20。
+
 :::
 
 - ###### sidebar_sections
@@ -277,7 +289,9 @@ Sidebar sections 的順序。
 以下是幾種建議樣式，當然你也可以改成自己的樣式：
 
 :::caution
+
 請確認加入的字串寬度剛好是一個字元。若不要邊框，請使用 ' '
+
 :::
 
 ```toml
@@ -315,7 +329,9 @@ border_middle_right = "┤"
 允許使用者將副檔名對應到用來開啟它們的指令。檔案路徑會附加為最後一個參數。
 
 :::caution
+
 必須位於檔案最末端
+
 :::
 
 ```toml
