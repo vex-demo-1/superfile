@@ -6,7 +6,7 @@ interface Props {
 	isDocs?: boolean;
 	/** True when currently on a zh-tw page */
 	isZhTw?: boolean;
-	/** Slug used to compute the lang-toggle target (docs only, empty for homepage) */
+	/** Slug used to compute the lang-toggle target, empty for homepage */
 	baseSlug?: string;
 	labels?: {
 		docs?: string;
@@ -30,8 +30,8 @@ const navLabels = {
 	homeAria: labels.homeAria ?? "superfile home"
 };
 
-// Landing:  EN  /  → /zh-tw/      ZH /zh-tw/ → /
-// Docs:     EN  /overview → /zh-tw/overview   ZH /zh-tw/overview → /overview
+// Homepage: EN / -> /zh-tw/      ZH /zh-tw/ -> /
+// Pages:    EN /slug -> /zh-tw/slug   ZH /zh-tw/slug -> /slug
 const langHref = isZhTw ? `/${baseSlug}` : `/zh-tw/${baseSlug}`;
 const langLabel = isZhTw ? "English" : "繁體中文";
 ---

@@ -111,6 +111,7 @@
 			"docs": "Docs",
 			"github": "GitHub",
 			"discord": "Discord",
+			"branding": "Branding",
 			"changelog": "Changelog",
 			"install": "Install"
 		}
@@ -227,6 +228,7 @@
 			"docs": "文件",
 			"github": "GitHub",
 			"discord": "Discord",
+			"branding": "品牌",
 			"changelog": "更新紀錄",
 			"install": "安裝"
 		}

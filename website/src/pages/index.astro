@@ -27,6 +27,7 @@ const isZhTw = locale === "zh-tw";
 const localePrefix = isZhTw ? "/zh-tw" : "";
 const rootPath = isZhTw ? "/zh-tw/" : "/";
 const docsPath = `${localePrefix}/overview`;
+const brandingPath = `${localePrefix}/branding`;
 const installPath = `${localePrefix}/getting-started/installation`;
 const changelogPath = `${localePrefix}/changelog`;
 const giscusTerm = homeI18n.en.title;
@@ -370,6 +371,7 @@ const installCommands = [
 			</div>
 			<nav class="footer-links" aria-label={t.footer.aria}>
 				<a href={docsPath} class="footer-link">{t.footer.docs}</a>
+				<a href={brandingPath} class="footer-link">{t.footer.branding}</a>
 				<a href="https://github.com/yorukot/superfile" class="footer-link" target="_blank" rel="noopener noreferrer">{t.footer.github}</a>
 				<a href="https://discord.gg/YYtJ23Du7B" class="footer-link" target="_blank" rel="noopener noreferrer">{t.footer.discord}</a>
 				<a href={changelogPath} class="footer-link">{t.footer.changelog}</a>
