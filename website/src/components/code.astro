@@ -1,6 +1,7 @@
 ---
 import { Code } from "astro:components";
 import fs from "node:fs/promises";
+import path from "node:path";
 
 interface Props {
 	file: string;
@@ -9,8 +10,8 @@ interface Props {
 }
 
 const { file, language } = Astro.props;
-const repoRoot = new URL("../../../", import.meta.url);
-const filePath = new URL(file, repoRoot);
+const repoRoot = process.env.GITHUB_WORKSPACE ?? path.resolve(process.cwd(), "..");
+const filePath = path.resolve(repoRoot, file);
 const fileExtension = file.split(".").pop() ?? "toml";
 const code = await fs.readFile(filePath, "utf-8");
 const lang = language ?? fileExtension;
