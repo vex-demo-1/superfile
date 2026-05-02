@@ -7,7 +7,7 @@ import { visit } from "unist-util-visit";
 export function remarkDirectivesHandler() {
 	return tree => {
 		visit(tree, node => {
-			if (node.type === "containerDirective" || node.type === "leafDirective" || node.type === "textDirective") {
+			if (node.type === "containerDirective" || node.type === "leafDirective") {
 				const name = node.name; // "tip" | "caution" | "note" | "danger"
 				node.data = node.data ?? {};
 				node.data.hName = "aside";

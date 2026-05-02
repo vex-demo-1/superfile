@@ -6,6 +6,30 @@ const enableAnalytics = import.meta.env.PROD;
 
 <ClientRouter />
 
+<script>
+	let didSpaSwap = false;
+
+	document.addEventListener("astro:before-swap", () => {
+		didSpaSwap = true;
+	});
+
+	document.addEventListener("astro:page-load", () => {
+		if (!didSpaSwap) return;
+		didSpaSwap = false;
+
+		document.querySelectorAll<HTMLScriptElement>('script[src="https://giscus.app/client.js"]').forEach(giscusScript => {
+			const parent = giscusScript.parentElement;
+			if (!parent || parent.querySelector(".giscus")) return;
+
+			const freshScript = document.createElement("script");
+			for (const attr of giscusScript.attributes) {
+				freshScript.setAttribute(attr.name, attr.value);
+			}
+			giscusScript.replaceWith(freshScript);
+		});
+	});
+</script>
+
 <!-- Favicon -->
 <link rel="icon" href="/logo.svg" type="image/svg+xml" />
 
@@ -21,19 +45,24 @@ const enableAnalytics = import.meta.env.PROD;
 			(() => {
 				const analyticsHosts = new Set(["superfile.dev", "www.superfile.dev"]);
 				if (!analyticsHosts.has(window.location.hostname)) return;
-
-				window.minimalAnalytics = { trackingId: "G-WFLBCRZ7MC", autoTrack: true };
-
-				const ga = document.createElement("script");
-				ga.src = "https://cdn.jsdelivr.net/npm/@minimal-analytics/ga4/dist/index.js";
-				ga.async = true;
-				document.head.append(ga);
-
-				const umami = document.createElement("script");
-				umami.src = "https://umami.yorukot.me/script.js";
-				umami.defer = true;
-				umami.dataset.websiteId = "8792ee93-9a4a-47be-9e7f-2b1587c3a3d1";
-				document.head.append(umami);
+				if (!window.minimalAnalytics) {
+					window.minimalAnalytics = { trackingId: "G-WFLBCRZ7MC", autoTrack: true };
+				}
+				if (!document.querySelector('script[data-analytics="ga4"]')) {
+					const ga = document.createElement("script");
+					ga.src = "https://cdn.jsdelivr.net/npm/@minimal-analytics/ga4/dist/index.js";
+					ga.async = true;
+					ga.dataset.analytics = "ga4";
+					document.head.append(ga);
+				}
+				if (!document.querySelector('script[data-analytics="umami"]')) {
+					const umami = document.createElement("script");
+					umami.src = "https://umami.yorukot.me/script.js";
+					umami.defer = true;
+					umami.dataset.websiteId = "8792ee93-9a4a-47be-9e7f-2b1587c3a3d1";
+					umami.dataset.analytics = "umami";
+					document.head.append(umami);
+				}
 			})();
 		</script>
 	)
