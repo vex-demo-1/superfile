@@ -6,20 +6,27 @@ import { visit } from "unist-util-visit";
 :::caution,
 
 :::note)
- * into <aside> elements that docs.css can style.
+ * into <Callout> components that docs.css can style.
  */
 export function remarkDirectivesHandler() {
 	return tree => {
 		visit(tree, node => {
 			if (node.type === "containerDirective" || node.type === "leafDirective") {
 				const name = node.name; // "tip" | "caution" | "note" | "danger"
-				node.data = node.data ?? {};
-				node.data.hName = "aside";
-				node.data.hProperties = {
-					...(node.attributes ?? {}),
-					class: `doc-aside doc-aside--${name}`,
-					"data-type": name
-				};
+				node.type = "mdxJsxFlowElement";
+				node.name = "Callout";
+				node.attributes = [
+					...Object.entries(node.attributes ?? {}).map(([attributeName, value]) => ({
+						type: "mdxJsxAttribute",
+						name: attributeName,
+						value
+					})),
+					{
+						type: "mdxJsxAttribute",
+						name: "type",
+						value: name
+					}
+				];
 			}
 		});
 	};

@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
+import Callout from "../components/Callout.astro";
 import Docs from "../layouts/Docs.astro";
 
 export async function getStaticPaths() {
@@ -16,5 +17,5 @@ const { Content, headings } = await render(entry);
 ---
 
 <Docs entry={entry} headings={headings}>
-	<Content />
+	<Content components={{ Callout }} />
 </Docs>

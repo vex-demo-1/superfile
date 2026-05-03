@@ -27,7 +27,7 @@
 }
 
 .branding-hero h1 {
-	max-width: 13ch;
+	max-width: 15ch;
 	margin-top: 1rem;
 	font-size: clamp(3.25rem, 9vw, 4rem);
 	line-height: 0.92;

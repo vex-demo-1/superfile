@@ -615,8 +615,9 @@
 
 /* ── Aside (tip/caution/note) ──────────────────────────────────────────────── */
 .doc-aside {
+	position: relative;
 	margin: 1.25rem 0;
-	padding: 0.85rem 1.1rem;
+	padding: 0.85rem 1.1rem 0.85rem 3.2rem;
 	border-radius: 0.375rem;
 	border: 1px solid;
 	font-size: 0.85rem;
@@ -630,7 +631,19 @@
 	margin-top: 0.5rem;
 }
 
-.doc-aside::before {
+.doc-aside-icon {
+	position: absolute;
+	top: 0.9rem;
+	left: 1rem;
+	opacity: 0.95;
+}
+
+.doc-aside-icon svg {
+	width: 1.35rem;
+	height: 1.35rem;
+}
+
+.doc-aside-label {
 	display: block;
 	font-size: 0.68rem;
 	font-weight: 700;
@@ -641,42 +654,34 @@
 }
 
 .doc-aside--tip {
-	background: var(--d-tip-bg);
-	border-color: rgba(137, 220, 235, 0.25);
 	color: #89dceb;
 }
-.doc-aside--tip::before {
-	content: "tip";
+.doc-aside--tip .doc-aside-icon,
+.doc-aside--tip .doc-aside-label {
 	color: var(--d-tip);
 }
 
 .doc-aside--caution {
-	background: var(--d-caution-bg);
-	border-color: rgba(250, 179, 135, 0.25);
 	color: #fab387;
 }
-.doc-aside--caution::before {
-	content: "caution";
+.doc-aside--caution .doc-aside-icon,
+.doc-aside--caution .doc-aside-label {
 	color: var(--d-caution);
 }
 
 .doc-aside--note {
-	background: var(--d-note-bg);
-	border-color: rgba(203, 166, 247, 0.25);
 	color: #cba6f7;
 }
-.doc-aside--note::before {
-	content: "note";
+.doc-aside--note .doc-aside-icon,
+.doc-aside--note .doc-aside-label {
 	color: var(--d-note);
 }
 
 .doc-aside--danger {
-	background: var(--d-danger-bg);
-	border-color: rgba(243, 139, 168, 0.25);
 	color: #f38ba8;
 }
-.doc-aside--danger::before {
-	content: "danger";
+.doc-aside--danger .doc-aside-icon,
+.doc-aside--danger .doc-aside-label {
 	color: var(--d-danger);
 }
 
