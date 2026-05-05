@@ -12,7 +12,7 @@ export default defineConfig({
 
 	markdown: {
 		shikiConfig: {
-			theme: "dracula",
+			theme: "catppuccin-mocha",
 			wrap: false
 		},
 		remarkPlugins: [remarkDirective, remarkDirectivesHandler]

@@ -249,7 +249,7 @@ If you want to contribute please follow the [contribution guide](./CONTRIBUTING.
 **Thanks to all the contributors for making this project even greater!**
 
 <a href="https://github.com/yorukot/superfile/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=yorukot/superfile" />
+  <img src="https://gthanks.yorukot.me/image?target=yorukot%2Fsuperfile" />
 </a>
 
 ### Powered by
