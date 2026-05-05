@@ -9,17 +9,7 @@ const label = isZhTw ? "搜尋" : "Search";
 
 <!-- ── Search trigger button ─────────────────────────────────────────────── -->
 <button class="search-trigger" id="search-trigger" aria-label={label} aria-haspopup="dialog">
-	<svg
-		width="14"
-		height="14"
-		viewBox="0 0 24 24"
-		fill="none"
-		stroke="currentColor"
-		stroke-width="2"
-		stroke-linecap="round"
-		stroke-linejoin="round"
-		aria-hidden="true"
-	>
+	<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 		<circle cx="11" cy="11" r="8"></circle>
 		<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
 	</svg>
@@ -33,31 +23,11 @@ const label = isZhTw ? "搜尋" : "Search";
 <div class="search-overlay" id="search-overlay" aria-hidden="true">
 	<div class="search-dialog" id="search-dialog" role="dialog" aria-modal="true" aria-label={label}>
 		<div class="search-header">
-			<svg
-				class="search-header-icon"
-				width="16"
-				height="16"
-				viewBox="0 0 24 24"
-				fill="none"
-				stroke="currentColor"
-				stroke-width="2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				aria-hidden="true"
-			>
+			<svg class="search-header-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 				<circle cx="11" cy="11" r="8"></circle>
 				<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
 			</svg>
-			<input
-				type="search"
-				class="search-input"
-				id="search-input"
-				placeholder={placeholder}
-				autocomplete="off"
-				autocorrect="off"
-				autocapitalize="off"
-				spellcheck="false"
-			/>
+			<input type="search" class="search-input" id="search-input" placeholder={placeholder} autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
 			<button class="search-esc-btn" id="search-close-btn" aria-label="Close search">
 				<kbd>ESC</kbd>
 			</button>

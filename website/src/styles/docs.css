@@ -498,7 +498,6 @@
 
 /* Inline code */
 .docs-content :not(pre) > code {
-	font-family: var(--font-mono);
 	font-size: 0.85em;
 	background: var(--d-bg-raised);
 	color: var(--d-green);
@@ -519,7 +518,6 @@
 .docs-content pre code {
 	display: block;
 	padding: 1.25rem 1.5rem;
-	font-family: var(--font-mono);
 	font-size: 0.82rem;
 	line-height: 1.7;
 	tab-size: 2;

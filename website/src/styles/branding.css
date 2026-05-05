@@ -3,6 +3,20 @@
 	padding: clamp(6.5rem, 12vw, 9rem) clamp(1.25rem, 5vw, 4rem) clamp(4rem, 8vw, 6rem);
 }
 
+.branding-text-link {
+	color: var(--green);
+	text-decoration: underline;
+	text-underline-offset: 0.1875rem;
+	text-decoration-color: rgba(166, 227, 161, 0.3);
+	transition:
+		color 0.15s,
+		text-decoration-color 0.15s;
+}
+.branding-text-link:hover {
+	color: var(--green);
+	text-decoration-color: var(--green);
+}
+
 .branding-hero,
 .brand-section,
 .branding-footer-inner {

@@ -207,7 +207,15 @@ const copy = {
 				<span class="branding-footer-sep" aria-hidden="true">·</span>
 				<span>{copy.footer.license}</span>
 				<span class="branding-footer-sep" aria-hidden="true">·</span>
-				<span>{copy.footer.byPrefix} <a href="https://github.com/yorukot" class="branding-text-link" target="_blank" rel="noopener noreferrer">yorukot</a>{copy.footer.byConnector}<a href={`${prefix}/special-thanks`} class="branding-text-link">{copy.footer.contributorsText}</a>{copy.footer.bySuffixEnd}</span>
+				<span>
+					{copy.footer.byPrefix}
+					<a href="https://github.com/yorukot" class="branding-text-link" target="_blank" rel="noopener noreferrer">yorukot</a>{copy.footer.byConnector}<a
+						href={`${prefix}/special-thanks`}
+						class="branding-text-link"
+					>
+						{copy.footer.contributorsText}
+					</a>{copy.footer.bySuffixEnd}
+				</span>
 			</div>
 			<nav class="branding-footer-links" aria-label="Footer">
 				<a href={`${prefix}/overview`}>{copy.footer.docs}</a>

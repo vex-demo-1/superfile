@@ -111,6 +111,11 @@ button {
 	background: none;
 }
 
+pre,
+code {
+	font-family: var(--font-mono);
+}
+
 /* ── View Transitions (SPA navigation) ──────────────────────────────────────── */
 @keyframes spf-fade-in {
 	from {

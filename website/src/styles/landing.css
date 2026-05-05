@@ -529,6 +529,13 @@ body {
 	line-height: 1.5;
 }
 
+.install-cmd code.astro-code {
+	background: transparent !important;
+	font-size: inherit;
+	word-break: break-all;
+	line-height: inherit;
+}
+
 .copy-btn {
 	flex-shrink: 0;
 	display: flex;
