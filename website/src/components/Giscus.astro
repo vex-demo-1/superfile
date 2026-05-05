@@ -2,10 +2,9 @@
 interface Props {
 	term: string;
 	lang: string;
-	theme: string;
 }
 
-const { term, lang, theme } = Astro.props;
+const { term, lang } = Astro.props;
 
 function escapeAttribute(value: string) {
 	return value.replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
@@ -23,7 +22,7 @@ const attributes: Record<string, string | boolean> = {
 	"data-reactions-enabled": "1",
 	"data-emit-metadata": "0",
 	"data-input-position": "top",
-	"data-theme": theme,
+	"data-theme": "catppuccin_mocha",
 	"data-lang": lang,
 	"data-loading": "lazy",
 	crossorigin: "anonymous",
