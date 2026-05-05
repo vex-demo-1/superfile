@@ -125,7 +125,7 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 				<div class="docs-body-inner">
 					<!-- Main -->
 					<main class="docs-main">
-						<article class="docs-content">
+						<article class="docs-content" data-pagefind-body data-pagefind-meta={`title:${title}`}>
 							{
 								!hasContentH1 && (
 									<div class="docs-page-header">
