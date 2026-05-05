@@ -69,13 +69,17 @@ const copy = {
 		],
 		footer: {
 			license: "MIT License",
-			by: "by yorukot & contributors",
+			byPrefix: "by",
+			byConnector: " & ",
+			contributorsText: "contributors",
+			bySuffixEnd: "",
 			docs: "Docs",
 			branding: "Branding",
 			github: "GitHub",
 			discord: "Discord",
 			changelog: "Changelog",
-			install: "Install"
+			install: "Install",
+			contributors: "Contributors"
 		}
 	},
 	"zh-tw": {
@@ -125,13 +129,17 @@ const copy = {
 		usage: ["請維持標誌原本的比例。", "標誌周圍保留足夠留白，避免緊貼文字或邊框。", "請勿重新上色、拉伸、旋轉，或替標誌加上特效。", "搭配文字時，請使用全小寫名稱：superfile。"],
 		footer: {
 			license: "MIT 授權",
-			by: "由 yorukot 與貢獻者共同維護",
+			byPrefix: "由",
+			byConnector: " 與",
+			contributorsText: "貢獻者",
+			bySuffixEnd: "共同維護",
 			docs: "文件",
 			branding: "品牌",
 			github: "GitHub",
 			discord: "Discord",
 			changelog: "更新紀錄",
-			install: "安裝"
+			install: "安裝",
+			contributors: "貢獻者"
 		}
 	}
 }[locale];
@@ -199,11 +207,12 @@ const copy = {
 				<span class="branding-footer-sep" aria-hidden="true">·</span>
 				<span>{copy.footer.license}</span>
 				<span class="branding-footer-sep" aria-hidden="true">·</span>
-				<span>{copy.footer.by}</span>
+				<span>{copy.footer.byPrefix} <a href="https://github.com/yorukot" class="branding-text-link" target="_blank" rel="noopener noreferrer">yorukot</a>{copy.footer.byConnector}<a href={`${prefix}/special-thanks`} class="branding-text-link">{copy.footer.contributorsText}</a>{copy.footer.bySuffixEnd}</span>
 			</div>
 			<nav class="branding-footer-links" aria-label="Footer">
 				<a href={`${prefix}/overview`}>{copy.footer.docs}</a>
 				<a href={`${prefix}/branding`}>{copy.footer.branding}</a>
+				<a href={`${prefix}/special-thanks`}>{copy.footer.contributors}</a>
 				<a href="https://github.com/yorukot/superfile" target="_blank" rel="noopener noreferrer">{copy.footer.github}</a>
 				<a href="https://discord.gg/YYtJ23Du7B" target="_blank" rel="noopener noreferrer">{copy.footer.discord}</a>
 				<a href={`${prefix}/changelog`}>{copy.footer.changelog}</a>

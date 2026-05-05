@@ -105,7 +105,9 @@
 		"footer": {
 			"license": "MIT License",
 			"byPrefix": "by",
-			"bySuffix": "& contributors",
+			"byConnector": " & ",
+			"contributorsText": "contributors",
+			"bySuffixEnd": "",
 			"separator": "·",
 			"aria": "Footer",
 			"docs": "Docs",
@@ -113,7 +115,8 @@
 			"discord": "Discord",
 			"branding": "Branding",
 			"changelog": "Changelog",
-			"install": "Install"
+			"install": "Install",
+			"contributors": "Contributors"
 		}
 	},
 	"zh-tw": {
@@ -222,7 +225,9 @@
 		"footer": {
 			"license": "MIT 授權",
 			"byPrefix": "由",
-			"bySuffix": "與貢獻者共同維護",
+			"byConnector": " 與",
+			"contributorsText": "貢獻者",
+			"bySuffixEnd": "共同維護",
 			"separator": "·",
 			"aria": "頁尾",
 			"docs": "文件",
@@ -230,7 +235,8 @@
 			"discord": "Discord",
 			"branding": "品牌",
 			"changelog": "更新紀錄",
-			"install": "安裝"
+			"install": "安裝",
+			"contributors": "貢獻者"
 		}
 	}
 }

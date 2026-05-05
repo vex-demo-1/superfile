@@ -615,7 +615,7 @@
 	font-style: italic;
 }
 
-.docs-content blockquote:last-child {
+.docs-content blockquote > *:last-child {
 	margin-bottom: 0;
 }
 
