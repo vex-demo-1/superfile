@@ -324,7 +324,8 @@ func makePasteProcessor(process processbar.Process,
 				// TODO : These error cases are hard to test. We have to somehow make the paste operations fail,
 				// which is time consuming and manual. We should test these with automated testcases
 				// UPD: use "chattr +i" for target catalog to fail past opeations
-				err = pasteDir(filePath, filepath.Join(panelLocation, filepath.Base(filePath)), &process, cut, processBarModel)
+				err = pasteDir(filePath, filepath.Join(panelLocation, filepath.Base(filePath)),
+					&process, cut, processBarModel)
 				if err != nil {
 					errMessage = "paste item error"
 				}
