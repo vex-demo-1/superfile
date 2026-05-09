@@ -307,7 +307,7 @@ func validatePasteOperation(panelLocation string, copyItems []string, cut bool) 
 
 func makePasteProcessor(process processbar.Process,
 	processBarModel *processbar.Model,
-	panelLocation string, copyItems []string, cut bool,
+	panelLocation string, cut bool,
 ) processbar.FileListProcessor {
 	processorFunction := func(items []string) (processbar.Process, []string) {
 		notProcessed := make([]string, 0)
@@ -316,7 +316,7 @@ func makePasteProcessor(process processbar.Process,
 			return process, notProcessed
 		}
 		var err error
-		for i, filePath := range copyItems {
+		for i, filePath := range items {
 			errMessage := "cut item error"
 			if cut && !isExternalDiskPath(filePath) {
 				err = moveElement(filePath, filepath.Join(panelLocation, filepath.Base(filePath)))
@@ -346,7 +346,7 @@ func makePasteProcessor(process processbar.Process,
 		if process.State != processbar.Failed {
 			process.State = processbar.Successful
 			process.Done = process.Total
-			process.DoneTime = time.Now()
+			markProcessDone(process, processBarModel)
 		}
 		return process, notProcessed
 	}
@@ -372,10 +372,10 @@ func (m *model) executePasteOperation(processBarModel *processbar.Model,
 		getTotalFilesCnt(items), true)
 	if err != nil {
 		slog.Error("Cannot spawn a new process", "error", err)
-		return processbar.Failed
+		return NewPasteOperationMsg(processbar.Failed, reqID)
 	}
 	finalizer := func(state processbar.ProcessState, reqId int) tea.Msg { return NewPasteOperationMsg(state, reqId) }
-	processor := makePasteProcessor(p, processBarModel, panelLocation, items, cut)
+	processor := makePasteProcessor(p, processBarModel, panelLocation, cut)
 	msg := m.runFileProcessor(processor, finalizer, items, reqID)
 	return msg
 }
